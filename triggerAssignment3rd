@@ -1,0 +1,4 @@
+trigger isAccountWithContact on Account (after insert, after update ) {
+
+    isAccountContact.isContactIn();
+}
