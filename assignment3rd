@@ -1,0 +1,52 @@
+public class isAccountContact {
+    public static void isContactIn(){
+        List<Account> aList = new List<Account>();
+        Contact cc = new Contact();
+        List<Id> iDList = new List<Id>();
+        Id aId;
+        Id cA;
+        Integer i;
+        String QueryA ='Select Id, Only_Default_Contact__c From Account order by CreatedDate desc Limit 1';
+        String QueryB = 'Select Id, Only_Default_Contact__c From Account';
+        List<Account> checkC = new List<Account>();
+        checkC = Database.query(QueryB);
+        aList = Database.query(QueryA);
+        Id cAId;
+        List<Contact> cList = new List<Contact>();
+        for(Account a: aList){
+            aId=a.Id;
+        }
+        cc.FirstName = 'Info';
+         cc.LastName = 'Default';
+         cc.Email = 'info@websitedomain.tld';
+         cc.AccountId=aId;
+        insert cc;
+        for(Account ac : aList){
+            ac.Only_Default_Contact__c= true;
+        }
+        for(Account acI: checkC){
+            cAId = acI.Id;
+           
+        }
+           String Queryc ='Select Id from Contact Where AccountId =: cAId';
+             cList = Database.query(QueryC);
+        for(Contact cI: cList){
+            iDList.add(cI.Id);
+        }
+        if(iDList.size()>1){
+            for(Id ia: iDList){
+            for(Account acD: checkC){
+                  cA=acD.Id;
+                if((ia==cA)){
+                   i++;
+                    if(i>1){
+                        acD.Only_Default_Contact__c=false; 
+                    }else{
+                acD.Only_Default_Contact__c=true;
+         }
+        }
+       }
+      }    
+     }
+    }
+   }
