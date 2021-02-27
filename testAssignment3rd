@@ -1,0 +1,8 @@
+@isTest
+public class IsAccountContactTest {
+
+    @isTest(SeeAllData=true)
+    static void isContactTest(){
+        isAccountContact.isContactIn();
+    }
+}
